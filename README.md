@@ -1,2 +1,2 @@
-# arctic
+# Arctic
 Arctic
