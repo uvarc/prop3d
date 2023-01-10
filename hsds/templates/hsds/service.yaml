@@ -1,12 +1,12 @@
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: hsds-service
-#   namespace: arctic
-# spec:
-#   selector:
-#     app: hsds
-#   ports:
-#     - protocol: TCP
-#       port: 8080
-#       targetPort: 5101
+apiVersion: v1
+kind: Service
+metadata:
+  name: hsds-service
+  namespace: hsds
+spec:
+  selector:
+    app: hsds
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 5101
