@@ -1,12 +1,12 @@
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: arctic-minio-service
-#   namespace: arctic
-# spec:
-#   selector:
-#     app: arctic-minio
-#   ports:
-#     - protocol: TCP
-#       port: 8080
-#       targetPort: 9000
+apiVersion: v1
+kind: Service
+metadata:
+  name: arctic-minio-service
+  namespace: hsds
+spec:
+  selector:
+    app: arctic-minio
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 9000
