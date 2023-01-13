@@ -24,8 +24,9 @@ spec:
         image: minio/minio:RELEASE.2022-02-17T23-22-26Z
         ports:
         - containerPort: 9000
-#         command:
-#         - minio gateway nas /container/vol --console-address :9000
+        command:
+        #- minio gateway nas /container/vol --console-address :9001
+        - minio gateway nas --console-address :9001
         volumeMounts:
         - name: arctic-minio-nfs-volume
           mountPath: /container/vol # mount inside of container
