@@ -26,7 +26,7 @@ spec:
         - containerPort: 9000
         command:
         #- minio gateway nas /container/vol --console-address :9001
-        - minio gateway nas --console-address :9001
+        - minio gateway nas /container/vol/artic-hsds --console-address :9001
         volumeMounts:
         - name: arctic-minio-nfs-volume
           mountPath: /container/vol # mount inside of container
