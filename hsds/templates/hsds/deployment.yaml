@@ -26,13 +26,13 @@
 #             limits:
 #               memory: "1G"
 #               cpu: "100m"
-#           # volumeMounts:
+#           volumeMounts:
 #           #   - name: accounts
 #           #     mountPath: "/config/passwd.txt"
 #           #     subPath: passwd.txt
-#           #   - name: config
-#           #     mountPath: "/config/config.yml"
-#           #     subPath: config.yml
+#             - name: config
+#               mountPath: "/config/config.yml"
+#               subPath: config.yml
 #           #   - name: override
 #           #     mountPath: "/config/override.yml"
 #           #     subPath: override.yml
@@ -75,10 +75,10 @@
 #             limits:
 #               memory: "2G"
 #               cpu: "100m"
-#           # volumeMounts:
-#           #   - name: config
-#           #     mountPath: "/config/config.yml"
-#           #     subPath: config.yml
+#           volumeMounts:
+#             - name: config
+#               mountPath: "/config/config.yml"
+#               subPath: config.yml
 #           #   - name: override
 #           #     mountPath: "/config/override.yml"
 #           #     subPath: override.yml
@@ -105,10 +105,10 @@
 #               port: 6101
 #             initialDelaySeconds: 5
 #             periodSeconds: 60
-#       # volumes:
+#       volumes:
 #       #   - name: accounts
 #       #     secret:
 #       #       secretName: user-password
-#       #   - name: config
-#       #     configMap:
-#       #       name: hsds-config
+#         - name: config
+#           configMap:
+#             name: hsds-config
