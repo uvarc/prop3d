@@ -1,114 +1,51 @@
 # apiVersion: apps/v1
 # kind: Deployment
 # metadata:
-#   labels:
-#     app: hsds
-#   name: hsds
+#   name: arctic-minio-deployment
 #   namespace: hsds
+#   labels:
+#     app: arctic-minio
 # spec:
 #   replicas: 1
 #   selector:
 #     matchLabels:
-#       app: hsds
+#       app: arctic-minio
 #   template:
 #     metadata:
 #       labels:
-#         app: hsds
+#         app: arctic-minio
 #     spec:
-#       containers:
-#         - name: sn
-#           image: hdfgroup/hsds:0.7.0
-#           imagePullPolicy: IfNotPresent
-#           resources:
-#             requests:
-#               memory: "1G"
-#               cpu: "50m"
-#             limits:
-#               memory: "1G"
-#               cpu: "100m"
-#           volumeMounts:
-#           #   - name: accounts
-#           #     mountPath: "/config/passwd.txt"
-#           #     subPath: passwd.txt
-#             - name: config
-#               mountPath: "/config/config.yml"
-#               subPath: config.yml
-#           #   - name: override
-#           #     mountPath: "/config/override.yml"
-#           #     subPath: override.yml
-#           ports:
-#             - containerPort: 5101
-#           env:
-#             - name: NODE_TYPE
-#               value: sn
-#             - name: HEAD_PORT
-#               value: null # no head container
-#             - name: PASSWORD_FILE
-#               value: /config/passwd.txt
-#             - name: AWS_ACCESS_KEY_ID
-#               valueFrom:
-#                 secretKeyRef:
-#                   name: aws-auth-keys
-#                   key: aws_access_key_id
-#             - name: AWS_SECRET_ACCESS_KEY
-#               valueFrom:
-#                 secretKeyRef:
-#                   name: aws-auth-keys
-#                   key: aws_secret_access_key
-#           livenessProbe:
-#             httpGet:
-#               path: /info
-#               port: 5101
-#             initialDelaySeconds: 5
-#             periodSeconds: 60
-#         - name: dn
-#           image: hdfgroup/hsds:0.7.0
-#           imagePullPolicy: IfNotPresent
-#           lifecycle:
-#             preStop:
-#               exec:
-#                 command: ["/sbin/killall5", "-15"]
-#           resources:
-#             requests:
-#               memory: "2G"
-#               cpu: "50m"
-#             limits:
-#               memory: "2G"
-#               cpu: "100m"
-#           volumeMounts:
-#             - name: config
-#               mountPath: "/config/config.yml"
-#               subPath: config.yml
-#           #   - name: override
-#           #     mountPath: "/config/override.yml"
-#           #     subPath: override.yml
-#           ports:
-#             - containerPort: 6101
-#           env:
-#             - name: NODE_TYPE
-#               value: dn
-#             - name: HEAD_PORT
-#               value: null # no head container
-#             - name: AWS_ACCESS_KEY_ID
-#               valueFrom:
-#                 secretKeyRef:
-#                   name: aws-auth-keys
-#                   key: aws_access_key_id
-#             - name: AWS_SECRET_ACCESS_KEY
-#               valueFrom:
-#                 secretKeyRef:
-#                   name: aws-auth-keys
-#                   key: aws_secret_access_key
-#           livenessProbe:
-#             httpGet:
-#               path: /info
-#               port: 6101
-#             initialDelaySeconds: 5
-#             periodSeconds: 60
 #       volumes:
-#       #   - name: accounts
-#       #     secret:
-#       #       secretName: user-password
-#         - name: config
-#           configMap:
-#             name: hsds-config
+#       - name: arctic-minio-nfs-volume
+#         persistentVolumeClaim:
+#           claimName: arctic-minio-nfs-pvc # name of pvc
+#       containers:
+#       - name: arctic-minio-container
+#         image: minio/minio:RELEASE.2022-02-17T23-22-26Z
+#         ports:
+#         - containerPort: 9000
+#         command:
+# #        - minio gateway nas /container/vol --console-address :9001
+#         volumeMounts:
+#         - name: arctic-minio-nfs-volume
+#           mountPath: /container/vol # mount inside of container
+#         env:
+# #        - name:
+# #          value: ""
+#         - name: "MINIO_ROOT_USER"
+#           valueFrom:
+#             secretKeyRef:
+#               name: arctic-minio-secrets
+#               key: MINIO_ROOT_USER
+#         - name: "MINIO_ROOT_PASSWORD"
+#           valueFrom:
+#             secretKeyRef:
+#               name: arctic-minio-secrets
+#               key: MINIO_ROOT_PASSWORD
+#         resources:
+#           requests:
+#             memory: "2024Mi"
+#             cpu: "50m"
+#           limits:
+#             memory: "3024Mi"
+#             cpu: "100m"
