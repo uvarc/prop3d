@@ -25,6 +25,10 @@ spec:
         ports:
         - containerPort: 9000
         command:
+<<<<<<< HEAD
+=======
+        #- minio gateway nas /container/vol --console-address :9001
+>>>>>>> 43a0f118a5c9df512cdef08d0c68a0ba64fbbe13
         - minio gateway nas /container/vol --console-address :9001
         volumeMounts:
         - name: arctic-minio-nfs-volume
