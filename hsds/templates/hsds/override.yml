@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hsds-override
+  namespace: hsds
+data:
+  override.yml: >+
+    og_level: DEBUG
+    
+    bucket_name: artic-hsds
+    
+    server_name: Highly Scalable Data Service (HSDS) on microk8s for UVA Arctic
+    
+    password_salt: 4ff6c98c3824474b964e361055926a6e
+    
+    hsds_endpoint: http://hsds.uvarc.io
+    
+    aws_s3_gateway: http://arctic-minio.uvadcos.io
+
+binaryData: {}
