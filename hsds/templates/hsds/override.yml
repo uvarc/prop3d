@@ -13,8 +13,8 @@ data:
     
     password_salt: 4ff6c98c3824474b964e361055926a6e
     
-    hsds_endpoint: http://hsds.uvarc.io
+    hsds_endpoint: http://hsds.pods.uvarc.io
     
-    aws_s3_gateway: http://arctic-minio.uvadcos.io
+    aws_s3_gateway: http://arctic-minio.pods.uvarc.io
 
 binaryData: {}
