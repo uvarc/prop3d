@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: sn
-          image: hdfgroup/hsds:0.7.2
+          image: hdfgroup/hsds:v0.7.2
           imagePullPolicy: IfNotPresent
           resources:
             requests:
@@ -62,7 +62,7 @@ spec:
             initialDelaySeconds: 5
             periodSeconds: 60
         - name: dn
-          image: hdfgroup/hsds:0.7.2
+          image: hdfgroup/hsds:v0.7.2
           imagePullPolicy: IfNotPresent
           lifecycle:
             preStop:
