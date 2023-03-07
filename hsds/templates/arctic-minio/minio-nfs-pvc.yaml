@@ -4,7 +4,7 @@ metadata:
   name: arctic-minio-nfs-pvc
   namespace: hsds
 spec:
-  storageClassName:
+  storageClassName: csi-cephfs-sc
   accessModes:
     - ReadWriteMany  #must be the same as PersistentVolume
   resources:
