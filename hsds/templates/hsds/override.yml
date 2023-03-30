@@ -7,7 +7,7 @@ data:
   override.yml: >+
     log_level: DEBUG
     
-    bucket_name: artic-hsds
+    bucket_name: hdfclouddocumentation
     
     server_name: Highly Scalable Data Service (HSDS) on RC Kubernetes for UVA Arctic
     
