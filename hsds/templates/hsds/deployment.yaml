@@ -89,12 +89,12 @@ spec:
               value: dn
             - name: HEAD_PORT
               value: null # no head container
-            - name: "MINIO_ROOT_USER"
+            - name: "AWS_ACCESS_KEY_ID"
               valueFrom:
                 secretKeyRef:
                   name: arctic-minio-secrets
                   key: MINIO_ROOT_USER
-            - name: "MINIO_ROOT_PASSWORD"
+            - name: "AWS_SECRET_ACCESS_KEY"
               valueFrom:
                 secretKeyRef:
                   name: arctic-minio-secrets
