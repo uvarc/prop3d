@@ -99,16 +99,6 @@ spec:
                 secretKeyRef:
                   name: arctic-minio-secrets
                   key: MINIO_ROOT_PASSWORD
-            # - name: AWS_ACCESS_KEY_ID
-            #   valueFrom:
-            #     secretKeyRef:
-            #       name: aws-auth-keys
-            #       key: aws_access_key_id
-            # - name: AWS_SECRET_ACCESS_KEY
-              # valueFrom:
-              #   secretKeyRef:
-              #     name: aws-auth-keys
-              #     key: aws_secret_access_key
           livenessProbe:
             httpGet:
               path: /info
