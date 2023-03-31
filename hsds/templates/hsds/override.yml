@@ -15,6 +15,6 @@ data:
     
     hsds_endpoint: http://hsds.pods.uvarc.io
     
-    aws_s3_gateway: http://arctic-minio.pods.uvarc.io:8080
+    aws_s3_gateway: http://arctic-minio-service.hsds.svc.cluster.local:8080
 
 binaryData: {}
