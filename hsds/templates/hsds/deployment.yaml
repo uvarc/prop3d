@@ -39,11 +39,11 @@ spec:
             - name: NODE_TYPE
               value: head_node
             - name: HEAD_PORT
-              value: 5100 
+              value: "5100" 
             - name: TARGET_SN_COUNT
-              value: 1
+              value: "1"
             - name: TARGET_DN_COUNT
-              value: 1
+              value: "1"
         - name: sn
           image: hdfgroup/hsds:sha-3e9c651
           imagePullPolicy: IfNotPresent
@@ -67,7 +67,7 @@ spec:
             - name: NODE_TYPE
               value: sn
             - name: HEAD_PORT
-              value: 5100 
+              value: "5100" 
             - name: "AWS_ACCESS_KEY_ID"
               valueFrom:
                 secretKeyRef:
@@ -111,7 +111,7 @@ spec:
             - name: NODE_TYPE
               value: dn
             - name: HEAD_PORT
-              value: 5100 
+              value: "5100" 
             - name: "AWS_ACCESS_KEY_ID"
               valueFrom:
                 secretKeyRef:
