@@ -1,55 +1,55 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: arctic-minio-deployment
-  namespace: hsds
-  labels:
-    app: arctic-minio
-spec:
-  replicas: 0
-  selector:
-    matchLabels:
-      app: arctic-minio
-  template:
-    metadata:
-      labels:
-        app: arctic-minio
-    spec:
-      volumes:
-      - name: arctic-minio-nfs-volume
-        persistentVolumeClaim:
-          claimName: arctic-minio-nfs-pvc # name of pvc
-      containers:
-      - name: arctic-minio-container
-        image: minio/minio:RELEASE.2022-02-17T23-22-26Z
-        ports:
-        - containerPort: 9000
-        command:
-        - /bin/bash
-        - -c
-        args:
-        - minio server /container/vol --console-address :9001
-        #- minio gateway nas /container/vol --console-address :9001
-        volumeMounts:
-        - name: arctic-minio-nfs-volume
-          mountPath: /container/vol # mount inside of container
-        env:
-#        - name:
-#          value: ""
-        - name: "MINIO_ROOT_USER"
-          valueFrom:
-            secretKeyRef:
-              name: arctic-minio-secrets
-              key: MINIO_ROOT_USER
-        - name: "MINIO_ROOT_PASSWORD"
-          valueFrom:
-            secretKeyRef:
-              name: arctic-minio-secrets
-              key: MINIO_ROOT_PASSWORD
-        resources:
-          requests:
-            memory: "2024Mi"
-            cpu: "50m"
-          limits:
-            memory: "3024Mi"
-            cpu: "100m"
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: arctic-minio-deployment
+#   namespace: hsds
+#   labels:
+#     app: arctic-minio
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: arctic-minio
+#   template:
+#     metadata:
+#       labels:
+#         app: arctic-minio
+#     spec:
+#       volumes:
+#       - name: arctic-minio-nfs-volume
+#         persistentVolumeClaim:
+#           claimName: arctic-minio-nfs-pvc # name of pvc
+#       containers:
+#       - name: arctic-minio-container
+#         image: minio/minio:RELEASE.2022-02-17T23-22-26Z
+#         ports:
+#         - containerPort: 9000
+#         command:
+#         - /bin/bash
+#         - -c
+#         args:
+#         - minio server /container/vol --console-address :9001
+#         #- minio gateway nas /container/vol --console-address :9001
+#         volumeMounts:
+#         - name: arctic-minio-nfs-volume
+#           mountPath: /container/vol # mount inside of container
+#         env:
+# #        - name:
+# #          value: ""
+#         - name: "MINIO_ROOT_USER"
+#           valueFrom:
+#             secretKeyRef:
+#               name: arctic-minio-secrets
+#               key: MINIO_ROOT_USER
+#         - name: "MINIO_ROOT_PASSWORD"
+#           valueFrom:
+#             secretKeyRef:
+#               name: arctic-minio-secrets
+#               key: MINIO_ROOT_PASSWORD
+#         resources:
+#           requests:
+#             memory: "2024Mi"
+#             cpu: "50m"
+#           limits:
+#             memory: "3024Mi"
+#             cpu: "100m"
