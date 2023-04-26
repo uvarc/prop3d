@@ -33,14 +33,27 @@ spec:
           - name: conf
             mountPath: "/conf"
           env:
-          - name: HSDS_USERNAME
+          - name: "HSDS_USERNAME"
+            valueFrom:
+              secretKeyRef:
+                name: arctic-hobo-secrets
+                key: HSDS_USERNAME
             value: hobo
-          - name: HSDS_PASSWORD
-            value: a6c2ddb9ff5f8aa93a3806c748a06837
-          - name: HOBO_CLIENT_ID
-            value: Mikal_WS
-          - name: HOBO_CLIENT_SECRET
-            value: e6a9dfc4491f334efc951318c4b0c6d39034f1cc
+          - name: "HSDS_PASSWORD"
+            valueFrom:
+              secretKeyRef:
+                name: arctic-hobo-secrets
+                key: HSDS_PASSWORD
+          - name: "HOBO_CLIENT_ID"
+            valueFrom:
+              secretKeyRef:
+                name: arctic-hobo-secrets
+                key: HOBO_CLIENT_ID
+          - name: "HOBO_CLIENT_SECRET"
+            valueFrom:
+              secretKeyRef:
+                name: arctic-hobo-secrets
+                key: HOBO_CLIENT_SECRET
       volumes:
       - name: conf
         configMap:
