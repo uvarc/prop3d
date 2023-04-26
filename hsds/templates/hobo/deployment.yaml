@@ -25,8 +25,10 @@ spec:
           resources:
             requests:
               memory: "1G"
+              cpu: "50m"
             limits:
               memory: "1G"
+              cpu: "100m"
           volumeMounts:
           - name: conf
             mountPath: "/conf"
