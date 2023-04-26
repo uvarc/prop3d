@@ -38,7 +38,6 @@ spec:
               secretKeyRef:
                 name: arctic-hobo-secrets
                 key: HSDS_USERNAME
-            value: hobo
           - name: "HSDS_PASSWORD"
             valueFrom:
               secretKeyRef:
