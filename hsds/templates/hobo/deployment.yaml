@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: hobo
+  name: hobo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hobo
+  template:
+    metadata:
+      labels:
+        app: hobo
+    spec:
+      containers:
+        -
+          name: hobo-request
+          # Use this image for AWS deployment
+          #image: "530483214727.dkr.ecr.us-west-2.amazonaws.com/hobo:v11"
+          # Use this image for microk8s deployment
+          image: "hdfgroup/hobo-request:v11"
+          imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              memory: "1G"
+            limits:
+              memory: "1G"
+          volumeMounts:
+          - name: conf
+            mountPath: "/conf"
+          env:
+          - name: HSDS_USERNAME
+            value: hobo
+          - name: HSDS_PASSWORD
+            value: a6c2ddb9ff5f8aa93a3806c748a06837
+          - name: HOBO_CLIENT_ID
+            value: Mikal_WS
+          - name: HOBO_CLIENT_SECRET
+            value: e6a9dfc4491f334efc951318c4b0c6d39034f1cc
+      volumes:
+      - name: conf
+        configMap:
+          name: hobo-conf
+            
