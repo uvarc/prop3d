@@ -17,13 +17,13 @@ data:
 
     client_id = 
 
-    client_secret = e6a9dfc4491f334efc951318c4b0c6d39034f1cc
+    client_secret = 
 
-    start_date_time = 2022-06-18 00:00:00
+    start_date_time = 2022-09-01 00:00:00
 
     end_date_time = 
 
-    polling_interval_minutes = 5 
+    polling_interval_minutes = 1440
 
     only_new_data = 
 
