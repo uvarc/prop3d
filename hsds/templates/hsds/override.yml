@@ -11,7 +11,7 @@ data:
     
     server_name: Highly Scalable Data Service (HSDS) on RC Kubernetes for UVA Arctic
     
-    password_salt: 4ff6c98c3824474b964e361055926a6e
+    password_salt: 
     
     hsds_endpoint: http://hsds.pods.uvarc.io
     

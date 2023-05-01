@@ -78,6 +78,11 @@ spec:
                 secretKeyRef:
                   name: arctic-minio-secrets
                   key: MINIO_ROOT_PASSWORD
+            - name: PASSWORD_SALT
+              valueFrom:
+                secretKeyRef:
+                  name: hsds-secrets
+                  key: PASSWORD_SALT
           livenessProbe:
             httpGet:
               path: /info
