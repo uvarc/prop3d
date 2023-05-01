@@ -9,7 +9,7 @@ data:
     
     bucket_name: arctic-hsds
     
-    server_name: Highly Scalable Data Service (HSDS) on RC Kubernetes for UVA Arctic
+    server_name: Highly Scalable Data Service (HSDS) on RC Kubernetes for UVA Arctic (test)
     
     password_salt: 
     
