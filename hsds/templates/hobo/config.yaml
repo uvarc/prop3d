@@ -43,7 +43,7 @@ data:
 
     hsds_filename = hdf5://projects/nsfarctic/uva-arc-alaska.h5
 
-    hsds_endpoint = http://hsds.hobo.svc.cluster.local:5101
+    hsds_endpoint = http://hsds.pods.uvarc.io
 
     [META]
 
