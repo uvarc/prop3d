@@ -4,6 +4,7 @@ metadata:
   labels:
     app: hobo
   name: hobo
+  namespace: hsds
 spec:
   replicas: 1
   selector:
