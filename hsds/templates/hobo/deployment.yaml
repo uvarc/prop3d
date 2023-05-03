@@ -37,22 +37,22 @@ spec:
           - name: "HSDS_USERNAME"
             valueFrom:
               secretKeyRef:
-                name: arctic-hobo-secrets
+                name: hobo-secrets
                 key: HSDS_USERNAME
           - name: "HSDS_PASSWORD"
             valueFrom:
               secretKeyRef:
-                name: arctic-hobo-secrets
+                name: hobo-secrets
                 key: HSDS_PASSWORD
           - name: "HOBO_CLIENT_ID"
             valueFrom:
               secretKeyRef:
-                name: arctic-hobo-secrets
+                name: hobo-secrets
                 key: HOBO_CLIENT_ID
           - name: "HOBO_CLIENT_SECRET"
             valueFrom:
               secretKeyRef:
-                name: arctic-hobo-secrets
+                name: hobo-secrets
                 key: HOBO_CLIENT_SECRET
       volumes:
       - name: conf
