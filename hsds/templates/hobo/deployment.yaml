@@ -32,8 +32,7 @@ spec:
               cpu: "100m"
           volumeMounts:
           - name: conf
-            mountPath: "/conf/hobo-connect.conf"
-            subPath: hobo-connect.conf
+            mountPath: "/conf/"
           env:
           - name: "HSDS_USERNAME"
             valueFrom:
