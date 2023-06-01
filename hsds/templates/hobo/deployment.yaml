@@ -21,7 +21,7 @@ spec:
           # Use this image for AWS deployment
           #image: "530483214727.dkr.ecr.us-west-2.amazonaws.com/hobo:v11"
           # Use this image for microk8s deployment
-          image: "hdfgroup/hobo-request:v14"
+          image: "hdfgroup/hobo-request:v15"
           imagePullPolicy: IfNotPresent
           resources:
             requests:
