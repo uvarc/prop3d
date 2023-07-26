@@ -6,7 +6,7 @@ metadata:
   name: hsds
   namespace: hsds
 spec:
-  replicas: 16
+  replicas: 1
   selector:
     matchLabels:
       app: hsds
