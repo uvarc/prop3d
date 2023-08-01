@@ -17,4 +17,14 @@ data:
     
     aws_s3_gateway: http://arctic-minio-service.hsds.svc.cluster.local:9000
 
+    chunk_mem_cache_expire: 0
+
+    chunk_mam_cache_size: 1024m
+
+    metadataa_mem_cache_expire: 0
+    
+    metadata_mem_cache_size: 256m
+
+    max_task_count: 400
+
 binaryData: {}
