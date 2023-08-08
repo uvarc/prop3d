@@ -9,7 +9,7 @@ data:
     
     bucket_name: arctic-hsds
     
-    server_name: Highly Scalable Data Service (HSDS) on RC Kubernetes for UVA Arctic (test)
+    server_name: Highly Scalable Data Service (HSDS) on RC Kubernetes for UVA Arctic 
     
     password_salt: 
     
@@ -19,7 +19,7 @@ data:
 
     chunk_mem_cache_expire: 0
 
-    chunk_mam_cache_size: 1024m
+    chunk_mam_cache_size: 1000000000
 
     metadataa_mem_cache_expire: 0
     
