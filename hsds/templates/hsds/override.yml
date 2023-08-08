@@ -8,7 +8,6 @@ data:
     log_level: DEBUG
     
     bucket_name: arctic-hsds
-
     
     server_name: Highly Scalable Data Service (HSDS) on RC Kubernetes for UVA Arctic 
     
@@ -20,11 +19,11 @@ data:
 
     chunk_mem_cache_expire: 0
 
-    chunk_mem_cache_size: 1024m 
+    chunk_mem_cache_size: 512m 
 
     metadata_mem_cache_expire: 0
     
-    metadata_mem_cache_size: 256m
+    metadata_mem_cache_size: 128m
 
     max_task_count: 400
 
