@@ -22,7 +22,7 @@ data:
 
     chunk_mem_cache_size: 1024m 
 
-    metadataa_mem_cache_expire: 0
+    metadata_mem_cache_expire: 0
     
     metadata_mem_cache_size: 256m
 
