@@ -116,7 +116,9 @@ spec:
             - name: NODE_TYPE
               value: dn
             - name: HEAD_PORT
-              value: "5100" 
+              value: "5100"
+            - name: DN_PORT
+              value: "6101"
             - name: "AWS_ACCESS_KEY_ID"
               valueFrom:
                 secretKeyRef:
@@ -160,7 +162,9 @@ spec:
             - name: NODE_TYPE
               value: dn
             - name: HEAD_PORT
-              value: "5100" 
+              value: "5100"
+            - name: DN_PORT
+              value: "6102" 
             - name: "AWS_ACCESS_KEY_ID"
               valueFrom:
                 secretKeyRef:
@@ -205,6 +209,8 @@ spec:
               value: dn
             - name: HEAD_PORT
               value: "5100" 
+            - name: DN_PORT
+              value: "6103"
             - name: "AWS_ACCESS_KEY_ID"
               valueFrom:
                 secretKeyRef:
@@ -249,6 +255,8 @@ spec:
               value: dn
             - name: HEAD_PORT
               value: "5100" 
+            - name: DN_PORT
+              value: "6104"
             - name: "AWS_ACCESS_KEY_ID"
               valueFrom:
                 secretKeyRef:
