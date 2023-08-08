@@ -8,6 +8,8 @@ data:
     log_level: DEBUG
     
     bucket_name: arctic-hsds
+
+    chunk_mam_cache_size: 1000000000
     
     server_name: Highly Scalable Data Service (HSDS) on RC Kubernetes for UVA Arctic 
     
@@ -18,8 +20,6 @@ data:
     aws_s3_gateway: http://arctic-minio-service.hsds.svc.cluster.local:9000
 
     chunk_mem_cache_expire: 0
-
-    chunk_mam_cache_size: 1000000000
 
     metadataa_mem_cache_expire: 0
     
