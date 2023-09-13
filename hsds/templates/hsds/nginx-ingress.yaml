@@ -4,17 +4,17 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /
-  name: hsds-nginx-ingress
-  namespace: hsds
+  name: prop3d-hsds-nginx-ingress
+  namespace: prop3d
 spec:
   rules:
-  - host: hsds.pods.uvarc.io
+  - host: prop3d-hsds.pods.uvarc.io
     http:
       paths:
       - pathType: Prefix
         path: "/"
         backend:
           service:
-            name: hsds
+            name: prop3d-hsds
             port:
               number: 8080    

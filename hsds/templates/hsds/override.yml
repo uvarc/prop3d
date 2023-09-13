@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: hsds-override
-  namespace: hsds
+  name: prop3d-hsds-override
+  namespace: prop3d
 data:
   override.yml: >+
     log_level: DEBUG
@@ -13,9 +13,9 @@ data:
     
     password_salt: 
     
-    hsds_endpoint: http://hsds.pods.uvarc.io
+    hsds_endpoint: http://prop3d-hsds.pods.uvarc.io
     
-    aws_s3_gateway: http://arctic-minio-service.hsds.svc.cluster.local:9000
+    aws_s3_gateway: http://prop3d-arctic-minio-service.prop3d.svc.cluster.local:9000
 
     chunk_mem_cache_expire: 0
 

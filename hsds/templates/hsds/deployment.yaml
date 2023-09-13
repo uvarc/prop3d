@@ -2,18 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: hsds
-  name: hsds
-  namespace: hsds
+    app: prop3d-hsds
+  name: prop3d-hsds
+  namespace: prop3d
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hsds
+      app: prop3d-hsds
   template:
     metadata:
       labels:
-        app: hsds
+        app: prop3d-hsds
     spec:
       containers:
         - name: head
@@ -81,7 +81,7 @@ spec:
             - name: PASSWORD_SALT
               valueFrom:
                 secretKeyRef:
-                  name: hsds-secrets
+                  name: prop3d-hsds-secrets
                   key: PASSWORD_SALT
           livenessProbe:
             httpGet:
@@ -122,12 +122,12 @@ spec:
             - name: "AWS_ACCESS_KEY_ID"
               valueFrom:
                 secretKeyRef:
-                  name: arctic-minio-secrets
+                  name: prop3d-arctic-minio-secrets
                   key: MINIO_ROOT_USER
             - name: "AWS_SECRET_ACCESS_KEY"
               valueFrom:
                 secretKeyRef:
-                  name: arctic-minio-secrets
+                  name: prop3d-arctic-minio-secrets
                   key: MINIO_ROOT_PASSWORD
           livenessProbe:
             httpGet:
@@ -168,12 +168,12 @@ spec:
             - name: "AWS_ACCESS_KEY_ID"
               valueFrom:
                 secretKeyRef:
-                  name: arctic-minio-secrets
+                  name: prop3d-arctic-minio-secrets
                   key: MINIO_ROOT_USER
             - name: "AWS_SECRET_ACCESS_KEY"
               valueFrom:
                 secretKeyRef:
-                  name: arctic-minio-secrets
+                  name: prop3d-arctic-minio-secrets
                   key: MINIO_ROOT_PASSWORD
           livenessProbe:
             httpGet:
@@ -214,12 +214,12 @@ spec:
             - name: "AWS_ACCESS_KEY_ID"
               valueFrom:
                 secretKeyRef:
-                  name: arctic-minio-secrets
+                  name: prop3d-arctic-minio-secrets
                   key: MINIO_ROOT_USER
             - name: "AWS_SECRET_ACCESS_KEY"
               valueFrom:
                 secretKeyRef:
-                  name: arctic-minio-secrets
+                  name: prop3d-arctic-minio-secrets
                   key: MINIO_ROOT_PASSWORD
           livenessProbe:
             httpGet:
@@ -260,12 +260,12 @@ spec:
             - name: "AWS_ACCESS_KEY_ID"
               valueFrom:
                 secretKeyRef:
-                  name: arctic-minio-secrets
+                  name: prop3d-arctic-minio-secrets
                   key: MINIO_ROOT_USER
             - name: "AWS_SECRET_ACCESS_KEY"
               valueFrom:
                 secretKeyRef:
-                  name: arctic-minio-secrets
+                  name: prop3d-arctic-minio-secrets
                   key: MINIO_ROOT_PASSWORD
           livenessProbe:
             httpGet:
@@ -276,7 +276,7 @@ spec:
       volumes:
         - name: config
           configMap:
-            name: hsds-config
+            name: prop3d-hsds-config
         - name: override
           configMap:
-            name: hsds-override
+            name: prop3d-hsds-override

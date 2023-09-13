@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: arctic-minio-deployment
-  namespace: hsds
+  name: prop3d-arctic-minio-deployment
+  namespace: prop3d
   labels:
-    app: arctic-minio
+    app: prop3d-arctic-minio
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: arctic-minio
+      app: prop3d-arctic-minio
   template:
     metadata:
       labels:
-        app: arctic-minio
+        app: prop3d-arctic-minio
     spec:
       volumes:
-      - name: arctic-minio-nfs-volume
+      - name: prop3d-arctic-minio-nfs-volume
         persistentVolumeClaim:
-          claimName: arctic-minio-nfs-pvc # name of pvc
+          claimName: prop3d-arctic-minio-nfs-pvc # name of pvc
       containers:
-      - name: arctic-minio-container
+      - name: prop3d-arctic-minio-container
         image: minio/minio:RELEASE.2022-02-17T23-22-26Z
         ports:
         - containerPort: 9000
@@ -31,7 +31,7 @@ spec:
         - minio server /container/vol --console-address :9001
         #- minio gateway nas /container/vol --console-address :9001
         volumeMounts:
-        - name: arctic-minio-nfs-volume
+        - name: prop3d-arctic-minio-nfs-volume
           mountPath: /container/vol # mount inside of container
         env:
 #        - name:
@@ -39,12 +39,12 @@ spec:
         - name: "MINIO_ROOT_USER"
           valueFrom:
             secretKeyRef:
-              name: arctic-minio-secrets
+              name: prop3d-arctic-minio-secrets
               key: MINIO_ROOT_USER
         - name: "MINIO_ROOT_PASSWORD"
           valueFrom:
             secretKeyRef:
-              name: arctic-minio-secrets
+              name: prop3d-arctic-minio-secrets
               key: MINIO_ROOT_PASSWORD
         resources:
           requests:

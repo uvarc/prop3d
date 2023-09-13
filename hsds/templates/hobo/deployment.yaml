@@ -2,22 +2,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: hobo
-  name: hobo
-  namespace: hsds
+    app: prop3d-hobo
+  name: prop3d-hobo
+  namespace: prop3d
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hobo
+      app: prop3d-hobo
   template:
     metadata:
       labels:
-        app: hobo
+        app: prop3d-hobo
     spec:
       containers:
         -
-          name: hobo-request
+          name: prop3d-hobo-request
           # Use this image for AWS deployment
           #image: "530483214727.dkr.ecr.us-west-2.amazonaws.com/hobo:v11"
           # Use this image for microk8s deployment
@@ -37,25 +37,25 @@ spec:
           - name: "HSDS_USERNAME"
             valueFrom:
               secretKeyRef:
-                name: arctic-hobo-secrets
+                name: prop3d-arctic-hobo-secrets
                 key: HSDS_USERNAME
           - name: "HSDS_PASSWORD"
             valueFrom:
               secretKeyRef:
-                name: arctic-hobo-secrets
+                name: prop3d-arctic-hobo-secrets
                 key: HSDS_PASSWORD
           - name: "HOBO_CLIENT_ID"
             valueFrom:
               secretKeyRef:
-                name: arctic-hobo-secrets
+                name: prop3d-arctic-hobo-secrets
                 key: HOBO_CLIENT_ID
           - name: "HOBO_CLIENT_SECRET"
             valueFrom:
               secretKeyRef:
-                name: arctic-hobo-secrets
+                name: prop3d-arctic-hobo-secrets
                 key: HOBO_CLIENT_SECRET
       volumes:
       - name: conf
         configMap:
-          name: hobo-conf
+          name: prop3d-hobo-conf
             

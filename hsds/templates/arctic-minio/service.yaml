@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: arctic-minio-service
-  namespace: hsds
+  name: prop3d-arctic-minio-service
+  namespace: prop3d
 spec:
   selector:
-    app: arctic-minio
+    app: prop3d-arctic-minio
   ports:
     - protocol: TCP
       port: 9000
