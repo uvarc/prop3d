@@ -71,12 +71,12 @@ spec:
             - name: "AWS_ACCESS_KEY_ID"
               valueFrom:
                 secretKeyRef:
-                  name: arctic-minio-secrets
+                  name: prop3d-arctic-minio-secrets
                   key: MINIO_ROOT_USER
             - name: "AWS_SECRET_ACCESS_KEY"
               valueFrom:
                 secretKeyRef:
-                  name: arctic-minio-secrets
+                  name: prop3d-arctic-minio-secrets
                   key: MINIO_ROOT_PASSWORD
             - name: PASSWORD_SALT
               valueFrom:
