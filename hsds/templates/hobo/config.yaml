@@ -45,7 +45,7 @@ data:
 
     hsds_filename = hdf5://projects/nsfarctic/uva-arc-alaska.h5
 
-    hsds_endpoint = http://hsds.prop3d.svc.cluster.local:8080
+    hsds_endpoint = http://prop3d-hsds.prop3d.svc.cluster.local:8080
 
     [META]
 
